@@ -192,3 +192,11 @@ a.custom-card:hover {
 .img-login {
   text-align: center;
 }
+
+.alert {
+  position: fixed;
+  top: 80px;
+  width: 50%;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
