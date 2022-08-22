@@ -189,14 +189,23 @@ a.custom-card:hover {
   color: orange;
 }
 
+.login {
+  text-align: center;
+}
+
 .img-login {
   text-align: center;
 }
 
-.alert {
+.alert-danger {
+  text-align: center;
   position: fixed;
-  top: 80px;
+  top: 680px;
   width: 50%;
   left: 50%;
   transform: translate(-50%, 0);
+}
+
+.g-signin2 {
+  margin-left: 45.5%;
 }

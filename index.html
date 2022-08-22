@@ -19,8 +19,10 @@
 
 <body>
   <main class="mt-5">
-    <div class="img-login">
-      <img src="img/login.png">
+    <div class="login">
+      <div class="img-login">
+        <img src="img/login.png">
+      </div>
       <p class="pLogin">Inicio de sesión</p>
       <form action="" id="form-login">
         <label for="email">Email</label>
@@ -34,8 +36,6 @@
         <button type="submit" id="loginButton">Ingresar</button>
         <div class="g-signin2" data-onsuccess="onSignIn"></div>
       </form>
-      <div id="profile">
-      </div>
     </div>
   </main>
   <footer class="text-muted">
@@ -50,7 +50,7 @@
   </footer>
 
   <div class="alert alert-danger alert-dismissible fade" role="alert" id="alert-danger">
-    <p>Los datos ingresados no cumplen con los requisitos solicitados</p>
+    <p>Deben llenarse todos los campos.</p>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
   <script src="https://apis.google.com/js/platform.js" async defer></script>
