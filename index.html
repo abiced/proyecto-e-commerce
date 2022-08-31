@@ -20,8 +20,8 @@
 <body>
   <main class="mt-5">
     <div class="login">
-      <div class="img-login">
-        <img src="img/login.png">
+      <div>
+        <img id="img-log" src="img/login.png">
       </div>
       <p class="pLogin">Inicio de sesión</p>
       <form action="" id="form-login">
@@ -34,9 +34,9 @@
         <input type="password" id="password" name="password" placeholder="Contraseña">
         <br>
         <button type="submit" id="loginButton">Ingresar</button>
-        <div class="g-signin2" data-onsuccess="onSignIn"></div>
       </form>
     </div>
+    <div id="google" class="g-signin2" data-onsuccess="onSignIn"></div>
   </main>
   <footer class="text-muted">
     <div class="container">
