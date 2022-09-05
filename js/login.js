@@ -8,6 +8,7 @@ loginValidation.addEventListener( "click", function(event){
     if ( emailValidation.length>0 && passwordValidation.length>0 ){
         event.preventDefault()
         window.location.href = "home.html"
+        localStorage.setItem("userEmail", emailValidation);
     } else {
         event.preventDefault()
         showAlertError()

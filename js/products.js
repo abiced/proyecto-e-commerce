@@ -1,8 +1,12 @@
-const infoCars = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+let infoCats = localStorage.getItem("catID")
 
-fetch(infoCars)
+let info = `https://japceibal.github.io/emercado-api/cats_products/${infoCats}.json`
+
+fetch(info)
 .then(response => response.json())
 .then(data => {
+    let nameCategories = document.getElementById("categories")
+    nameCategories.innerHTML = `${data.catName}`
     console.log(data.products)
     let divCars = document.getElementById('cars');
     for (let i=0; i < data.products.length; i++) {
