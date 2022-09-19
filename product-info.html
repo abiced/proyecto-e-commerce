@@ -39,8 +39,28 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div id="information">
+      </div>
+      <div id="comments">
+      </div>
+      <hr>
+      <div id="formComment">
+        <form action="" id="commentForm">
+          <label for="commentText">Agregar comentario</label>
+          <br>
+          <textarea name="commentText" id="newComment" cols="50" rows="5" placeholder="Escribe aqui tu comentario"></textarea>
+          <br>
+          <label for="calification">Califica este producto</label>
+          <select name="calification" id="scoreArea">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <br>
+          <input type="submit" value="Enviar comentario" id="btnSubmit">
+        </form>
       </div>
     </div>
   </main>

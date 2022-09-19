@@ -10,13 +10,19 @@ let filterBtn = document.getElementById("priceFilter");
 let restoreBtn = document.getElementById("clearPriceFilter");
 let productsArray = [];
 let productsArray2 = [];
+let divContainer = document.getElementById("cars");
+
+function setInfoID(id) {
+    localStorage.setItem("InfoID", id);
+    window.location = "product-info.html"
+};
 
 function showProducts(){
     let content = ""
     for(let i = 0; i < productsArray.length; i++){
         let products = productsArray[i];
         content += `
-        <div onclick="setCatID(${products.id})" class="list-group-item list-group-item-action cursor-active">
+        <div onclick="setInfoID(${products.id})" class="list-group-item list-group-item-action cursor-active">
                 <div class="row">
                     <div class="col-3">
                         <img src="${products.image}" alt="${products.description}" class="img-thumbnail">
@@ -31,7 +37,7 @@ function showProducts(){
                 </div>
             </div>
         `
-        document.getElementById("cars").innerHTML = content;
+        divContainer.innerHTML = content;
     }
 }
 
