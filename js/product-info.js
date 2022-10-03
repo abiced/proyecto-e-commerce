@@ -3,6 +3,7 @@ let infoP = `https://japceibal.github.io/emercado-api/products/${infoProduct}.js
 let commentUrl = `https://japceibal.github.io/emercado-api/products_comments/${infoProduct}.json`
 let divInformation = document.getElementById("information")
 let divComments = document.getElementById("comments")
+let divRelated = document.getElementById("productsRelated")
 let commentArray = []
 let newComment = document.getElementById("newComment")
 let calificationStars = document.getElementById("scoreArea")
@@ -20,6 +21,7 @@ let rightNow = time.getHours() + ":"+time.getMinutes()+ ":" + time.getSeconds();
     newDay = day + "-" + month + "-" + year + " ";
 let localTime = newDay + rightNow
 
+
 getJSONData(infoP).then(function(resultObj){
     if(resultObj.status==="ok"){
         products = resultObj.data
@@ -27,7 +29,7 @@ getJSONData(infoP).then(function(resultObj){
         function showProducts(){
             let content = ""
                 content += `
-                <h2>${products.name}<hr></h2>
+                <h2>${products.name}</h2><hr>
                 <h4><strong>Precio</strong></h4>
                 <p>${products.currency} ${products.cost}</p>
                 <h4><strong>Descripción</strong></h4>
@@ -38,17 +40,62 @@ getJSONData(infoP).then(function(resultObj){
                 <p>${products.soldCount}</p>
                 <h4><strong>Imagenes ilustrativas</strong></h4>
                 <div id="productImages">
-                <img src="${products.images[0]}">
-                <img src="${products.images[1]}">
-                <img src="${products.images[2]}">
-                <img src="${products.images[3]}">
+                    <div id="carouselExampleControls" class="carousel slide carousel-dark" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="${products.images[0]}" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="${products.images[1]}" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="${products.images[2]}" class="d-block w-100">
+                        </div>
+                        <div class="carousel-item">
+                            <img src="${products.images[3]}" class="d-block w-100">
+                        </div>
+                    </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
+                    </div>
                 </div>
                 `
                 divInformation.innerHTML = content;
             }
-        }
+            function showRelated(){
+                relP = products.relatedProducts
+                let contentRelated = ""
+                console.log(relP)
+                    contentRelated += `
+                    <h4>Productos relacionados</h4>
+                    <div id="divRelatedProducts">
+                        <div onclick="setInfoID(${relP[0].id})" class="card" style="width: 18rem;">
+                            <img src="${relP[0].image}" class="card-img-top" alt="${relP[0].name}">
+                        <div class="card-body">
+                            <p class="card-text">${relP[0].name}</p>
+                        </div>
+                        </div>
+                        <div onclick="setInfoID(${relP[1].id})" class="card" style="width: 18rem;">
+                            <img src="${relP[1].image}" class="card-img-top" alt="${relP[1].name}">
+                        <div class="card-body">
+                            <p class="card-text">${relP[1].name}</p>
+                        </div>
+                        </div>
+                    </div>
+                    <hr>
+                    `
+                    divRelated.innerHTML = contentRelated;
+                }
         showProducts()
+        showRelated()
     }
+}
 )
 
 

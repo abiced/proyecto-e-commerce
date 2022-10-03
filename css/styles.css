@@ -216,17 +216,6 @@ a.custom-card:hover {
   justify-content: center;
 }
 
-#productImages {
-  display: flex;
-  flex-direction: row;
-  max-width: 100%;
-  max-height: 100%;
-  width: 10em;
-  height: 10em;
-  margin-top: 50px;
-  margin-bottom: 50px;
-}
-
 #information h2 {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -247,4 +236,14 @@ a.custom-card:hover {
 
 #userBlack {
   font-weight: bold;
+}
+
+#divRelatedProducts {
+  display: flex;
+  justify-content: start;
+}
+
+#productImages {
+  width: 45em;
+  max-width: 100%;
 }

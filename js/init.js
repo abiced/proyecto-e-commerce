@@ -42,3 +42,13 @@ let getJSONData = function(url){
 
 document.getElementById("userEmailNav").innerHTML +=
 localStorage.getItem("userEmail");
+
+let sessionClosed = document.getElementById("sessionClosed");
+sessionClosed.addEventListener("click", function(){
+  localStorage.removeItem("userEmail")
+});
+
+function setInfoID(id) {
+  localStorage.setItem("InfoID", id);
+  window.location = "product-info.html"
+};

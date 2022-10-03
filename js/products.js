@@ -12,10 +12,6 @@ let productsArray = [];
 let productsArray2 = [];
 let divContainer = document.getElementById("cars");
 
-function setInfoID(id) {
-    localStorage.setItem("InfoID", id);
-    window.location = "product-info.html"
-};
 
 function showProducts(){
     let content = ""
