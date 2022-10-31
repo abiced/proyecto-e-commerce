@@ -49,16 +49,16 @@
     <div class="container">
     <div id="divForm">
       <form>
-        <div>
+        <div id="divRadios">
           <h4>Tipo de envio</h4>
           <br>
-          <input type="radio" id="premium" name="shipping">
+          <input type="radio" id="premium" name="shipping" value="0.15">
           <label for="premium">Premium 2 a 5 dias (15%)</label>
           <br>
-          <input type="radio" id="express" name="shipping">
+          <input type="radio" id="express" name="shipping" value="0.07">
           <label for="express">Express 5 a 8 dias (7%)</label>
           <br>
-          <input type="radio" id="standard" name="shipping">
+          <input type="radio" id="standard" name="shipping" value="0.05">
           <label for="standard">Standard 12 a 15 dias (5%)</label>
         </div>
           <br>
@@ -84,6 +84,61 @@
       </form>
     </div>
     <hr style="margin-left: auto;margin-right: auto;width:87%;">
+    <div id="costCard" class="container">
+    </div>
+    <hr style="margin-left: auto;margin-right: auto;width:87%;">
+    <div class="container">
+      <h4>Forma de pago</h4>
+      <label for="btnModal" id="modalDescription">Aun no se ha seleccionado ningun metodo de pago</label>
+      <br>
+      <button id="btnModal" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#myModal">
+        Seleccionar modo de pago
+      </button>
+      <div class="modal fade" id="myModal">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content">
+      
+            <div class="modal-header">
+              <h4 class="modal-title">Forma de pago</h4>
+              <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+      
+            <div class="modal-body">
+              <div id="modalForm">
+                <form>
+                  <div id="modalRadios">
+                    <hr>
+                    <input type="radio" id="creditCard" name="payMethod">
+                    <label for="creditCard">Tarjeta de credito</label>
+                    <hr>
+                    <label for="creditCardNumber">Número de tarjeta</label>
+                    <input id="creditCardNumber" type="tel" inputmode="numeric" pattern="[0-9\s]{13,19}" autocomplete="cc-number" maxlength="19" placeholder="xxxx xxxx xxxx xxxx">
+                    <label for="securityCode">Código de seguridad</label>
+                    <input type="text" inputmode="numeric" id="securityCode">
+                    <label for="expDate">Fecha de vencimiento</label>
+                    <input type="text" placeholder="MM/AA" id="expDate">
+                    <hr>
+                    <input type="radio" id="bankTransfer" name="payMethod">
+                    <label for="bankTransfer">Transferencia bancaria</label>
+                    <hr>
+                    <label for="accountNum">Número de cuenta</label>
+                    <input type="text" id="accountNum">
+                  </div>
+                </form>
+              </div>
+            </div>
+      
+            <div class="modal-footer">
+              <button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btnCloseModal">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+    <hr style="margin-left: auto;margin-right: auto;width:87%;">
+    <div class="d-grid gap-2">
+      <button class="btn btn-primary" type="submit" style="margin-left: auto;margin-right: auto;width:87%">Finalizar compra</button>
+    </div>
   </main>
   <footer class="text-muted">
     <div class="container">
