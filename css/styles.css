@@ -278,8 +278,25 @@ a.custom-card:hover {
 
 #pSpanTotal {
   font-weight: bold;
+  float: right;
 }
 
 .FontSpan {
   font-weight: bold;
+}
+
+.costRight {
+  float: right;
+}
+
+#shopAlert {
+  text-align: center;
+}
+
+#shopAlertSuccess {
+  margin-top: 5em;
+}
+
+.invalidForm {
+  color: crimson;
 }

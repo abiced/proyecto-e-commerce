@@ -3,6 +3,7 @@ let myCart = document.getElementById("divCart")
 let normalUnitcost = []
 let changedUnitcost = []
 let costCard = document.getElementById("costCard")
+let shopAlert = document.getElementById("shopAlert")
 
 fetch(cartExample)
 .then(response => response.json())
@@ -34,7 +35,7 @@ fetch(cartExample)
             </div>
             <div class="col-sm-2">
             <p class="titles">Cantidad</p>
-            <input id="form1" min="1" name="cantidad" value="1" type="number"/>
+            <input id="form1" min="1" name="cantidad" value="1" type="number" required/>
             </div>
             <div class="col-sm-2 titles">
             <p id="subt">Subtotal</p>
@@ -57,17 +58,14 @@ fetch(cartExample)
         <ul class="list-group list-group-flush">
             <li class="list-group-item">
             <h6>Subtotal</h6>
-            <p>Costo unitario del producto por cantidad</p>
-            <p>${cartArticle.currency} <span id="spanChangedUnitCost2">${changedUnitcost}</span></p>
+            <p>Costo unitario del producto por cantidad <span class="costRight">${cartArticle.currency} <span id="spanChangedUnitCost2">${changedUnitcost}</span></span></p>
             </li>
             <li class="list-group-item">
             <h6>Costo de envio</h6>
-            <p>Segun el tipo de envio</p>
-            <p>${cartArticle.currency} <span id="spanCost"></span></p>
+            <p>Segun el tipo de envio <span class="costRight">${cartArticle.currency} <span id="spanCost"></span></span></p>
             </li>
             <li class="list-group-item">
-            <h6>Total</h6>
-            <p id="pSpanTotal">${cartArticle.currency} <span id="spanTotal"></span></p>
+            <h6>Total</h6><p>Total a pagar <span id="pSpanTotal">${cartArticle.currency} <span id="spanTotal"></span></span></p>
             </li>
         </ul>
     </div>
@@ -105,17 +103,124 @@ closeModal.addEventListener("click", function() {
         modalDescription.innerHTML = `Metodo de pago seleccionado: <span class="FontSpan">Cuenta bancaria</span>`
     }
 })
+
 let modalForm = document.getElementById("modalRadios");
+let creditCardNumber = document.getElementById("creditCardNumber")
+let accountNum = document.getElementById("accountNum")
+let securityCode = document.getElementById("securityCode")
+let expDate = document.getElementById("expDate")
+
 modalForm.addEventListener("input", function() {
-    if (creditCard.checked) {
-        document.getElementById("accountNum").disabled = true
-        document.getElementById("creditCardNumber").disabled = false
-        document.getElementById("securityCode").disabled = false
-        document.getElementById("expDate").disabled = false
-    } else {
-        document.getElementById("creditCardNumber").disabled = true
-        document.getElementById("securityCode").disabled = true
-        document.getElementById("expDate").disabled = true
-        document.getElementById("accountNum").disabled = false
+    if (creditCard.checked && creditCardNumber.value == 0 && securityCode.value == 0 && expDate.value == 0) {
+        invalidForm4.setAttribute("hidden", "")
+        invalidForm1.removeAttribute("hidden")
+        invalidForm2.removeAttribute("hidden")
+        invalidForm3.removeAttribute("hidden")
+        accountNum.disabled = true
+        creditCardNumber.disabled = false
+        securityCode.disabled = false
+        expDate.disabled = false
+    } else if (creditCard.checked && creditCardNumber.value !== 0 && securityCode.value == 0 && expDate.value == 0) {
+        invalidForm4.setAttribute("hidden", "")
+        invalidForm1.setAttribute("hidden", "")
+        invalidForm2.removeAttribute("hidden")
+        invalidForm3.removeAttribute("hidden")
+        accountNum.disabled = true
+        creditCardNumber.disabled = false
+        securityCode.disabled = false
+        expDate.disabled = false
+    } else if (creditCard.checked && creditCardNumber.value == 0 && securityCode.value !== 0 && expDate.value == 0) {
+        invalidForm4.setAttribute("hidden", "")
+        invalidForm1.removeAttribute("hidden")
+        invalidForm2.setAttribute("hidden", "")
+        invalidForm3.removeAttribute("hidden")
+        accountNum.disabled = true
+        creditCardNumber.disabled = false
+        securityCode.disabled = false
+        expDate.disabled = false
+    } else if (creditCard.checked && creditCardNumber.value == 0 && securityCode.value == 0 && expDate.value !== 0) {
+        invalidForm4.setAttribute("hidden", "")
+        invalidForm1.removeAttribute("hidden")
+        invalidForm2.removeAttribute("hidden")
+        invalidForm3.setAttribute("hidden", "")
+        accountNum.disabled = true
+        creditCardNumber.disabled = false
+        securityCode.disabled = false
+        expDate.disabled = false
+    } else if (creditCard.checked && creditCardNumber.value !== 0 && securityCode.value !== 0 && expDate.value == 0) {
+        invalidForm4.setAttribute("hidden", "")
+        invalidForm1.setAttribute("hidden", "")
+        invalidForm2.setAttribute("hidden", "")
+        invalidForm3.removeAttribute("hidden")
+        accountNum.disabled = true
+        creditCardNumber.disabled = false
+        securityCode.disabled = false
+        expDate.disabled = false
+    } else if (creditCard.checked && creditCardNumber.value == 0 && securityCode.value !== 0 && expDate.value !== 0) {
+        invalidForm4.setAttribute("hidden", "")
+        invalidForm1.removeAttribute("hidden")
+        invalidForm2.setAttribute("hidden", "")
+        invalidForm3.setAttribute("hidden", "")
+        accountNum.disabled = true
+        creditCardNumber.disabled = false
+        securityCode.disabled = false
+        expDate.disabled = false
+    } else if (creditCard.checked && creditCardNumber.value !== 0 && securityCode.value == 0 && expDate.value !== 0) {
+        invalidForm4.setAttribute("hidden", "")
+        invalidForm1.setAttribute("hidden", "")
+        invalidForm2.removeAttribute("hidden")
+        invalidForm3.setAttribute("hidden", "")
+        accountNum.disabled = true
+        creditCardNumber.disabled = false
+        securityCode.disabled = false
+        expDate.disabled = false
+    } else if (creditCard.checked && creditCardNumber.value !== 0 && securityCode.value !== 0 && expDate.value !== 0) {
+        invalidForm4.setAttribute("hidden", "")
+        invalidForm1.setAttribute("hidden", "")
+        invalidForm2.setAttribute("hidden", "")
+        invalidForm3.setAttribute("hidden", "")
+        accountNum.disabled = true
+        creditCardNumber.disabled = false
+        securityCode.disabled = false
+        expDate.disabled = false
+    } else if (bankTransfer.checked && accountNum.value == 0) {
+        invalidForm4.removeAttribute("hidden")
+        invalidForm1.setAttribute("hidden", "")
+        invalidForm2.setAttribute("hidden", "")
+        invalidForm3.setAttribute("hidden", "")
+        creditCardNumber.disabled = true
+        securityCode.disabled = true
+        expDate.disabled = true
+        accountNum.disabled = false
+    } else if (bankTransfer.checked && accountNum.value !== 0) {
+        invalidForm4.setAttribute("hidden", "")
+        invalidForm1.setAttribute("hidden", "")
+        invalidForm2.setAttribute("hidden", "")
+        invalidForm3.setAttribute("hidden", "")
+        creditCardNumber.disabled = true
+        securityCode.disabled = true
+        expDate.disabled = true
+        accountNum.disabled = false
     }
-})
+});
+
+(() => {
+    'use strict'
+  
+    const forms = document.querySelectorAll('.needs-validation')
+  
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        } else if (form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+            shopAlert.removeAttribute("hidden")
+        }
+  
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
