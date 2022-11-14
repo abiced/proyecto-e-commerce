@@ -300,3 +300,12 @@ a.custom-card:hover {
 .invalidForm {
   color: crimson;
 }
+
+#profileForm {
+  justify-content: center;
+}
+
+#headerInline {
+  display: flex;
+  justify-content: space-between;
+}

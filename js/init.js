@@ -46,6 +46,12 @@ localStorage.getItem("userEmail");
 let sessionClosed = document.getElementById("sessionClosed");
 sessionClosed.addEventListener("click", function(){
   localStorage.removeItem("userEmail")
+  localStorage.removeItem("profileName")
+  localStorage.removeItem("profileSecondName")
+  localStorage.removeItem("profileLastname")
+  localStorage.removeItem("profileSecondLastname")
+  localStorage.removeItem("profileTelephone")
+  localStorage.removeItem("profilePic")
 });
 
 function setInfoID(id) {

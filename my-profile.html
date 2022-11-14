@@ -59,8 +59,54 @@
   </nav>
   <main>
     <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+      <div>
+        <br>
+        <div id="headerInline">
+        <h2>Perfil</h2><img src="https://i.stack.imgur.com/34AD2.jpg" id="profilePictureView" width="100" height="100">
+        </div>
+        <hr>
+        <div>
+          <form class="needs-validation" novalidate>
+            <div class="row" id="profileForm">
+            <div class="profileFormDiv col-4">
+            <label for="profileName" class="form-label">Primer nombre*</label>
+            <input type="text" id="profileName" class="form-control" required>
+            </div>
+            <div class="profileFormDiv col-4">
+            <label for="profileSecondName" class="form-label">Segundo nombre</label>
+            <input type="text" id="profileSecondName" class="form-control">
+            </div>
+            <div class="w-100"></div>
+            <div class="profileFormDiv col-4">
+            <label for="profileLastname" class="form-label">Primer apellido*</label>
+            <input type="text" id="profileLastname" class="form-control" required>
+            </div>
+            <div class="profileFormDiv col-4">
+            <label for="profileSecondLastname" class="form-label">Segundo apellido</label>
+            <input type="text" id="profileSecondLastname" class="form-control">
+            </div>
+            <div class="w-100"></div>
+            <div class="profileFormDiv col-4">
+            <label for="profileEmail" class="form-label">E-mail*</label>
+            <input type="email" id="profileEmail" class="form-control" required>
+            </div>
+            <div class="profileFormDiv col-4" id="telephoneProfile">
+            <label for="telephone" class="form-label">Telefono de contacto</label>
+            <input type="tel" id="telephone" class="form-control">
+            </div>
+            <div class="w-100"></div>
+            <div class="profileFormDiv col-8">
+            <label for="profilePicture" class="form-label">Imagen de perfil</label>
+            <input type="file" id="profilePicture" class="form-control" onchange="previewFile()">
+            <br>
+            </div>
+            <hr>
+            <div class="col-auto">
+              <button type="submit" class="btn btn-primary mb-3">Guardar cambios</button>
+            </div>
+            </div>
+          </form>
+        </div>  
       </div>
     </div>
   </main>
